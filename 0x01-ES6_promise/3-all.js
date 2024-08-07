@@ -2,9 +2,9 @@
 /* eslint-disable import/extensions */
 import { uploadPhoto, createUser } from '../utils.js';
 
-export default function handleProfileSignup(status, body, firstName, lastName) {
+export default function handleProfileSignup() {
   return (
-    Promise.all([uploadPhoto(status, body), createUser(firstName, lastName)])
+    Promise.all([uploadPhoto(), createUser()])
       .then((results) => {
         const [photo, user] = results;
         console.log(`${photo.body} ${user.firstName} ${user.lastName}`);
