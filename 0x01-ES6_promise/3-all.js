@@ -1,5 +1,6 @@
 /* eslint-disable linebreak-style */
-import { uploadPhoto, createUser } from '../utils';
+/* eslint-disable import/extensions */
+import { uploadPhoto, createUser } from '../utils.js';
 
 export default function handleProfileSignup() {
   Promise.all([uploadPhoto(), createUser()])
