@@ -1,9 +1,10 @@
 /* eslint-disable linebreak-style */
-import { uploadPhoto, createUser } from '../utils';
+/* eslint-disable import/extensions */
+import { uploadPhoto, createUser } from '../utils.js';
 
 export default async function asyncUploadUser() {
   try {
-    const [photo, user] = await Promise.all([uploadPhoto(), createUser()]);
+    const [photo, user] = await Promise.allSettled([uploadPhoto(), createUser()]);
     return {
       photo,
       user,
