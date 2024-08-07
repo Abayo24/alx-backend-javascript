@@ -1,6 +1,6 @@
 /* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import { uploadPhoto, createUser } from '../utils.js';
+import { uploadPhoto, createUser } from './utils.js';
 
 export default async function asyncUploadUser() {
   try {
