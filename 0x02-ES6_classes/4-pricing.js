@@ -1,10 +1,12 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable constructor-super */
 /* eslint-disable no-this-before-super */
 /* eslint-disable no-underscore-dangle */
 import Currency from './3-currency';
 
-export default class Pricing extends Currency {
+export default class Pricing {
   constructor(amount, currency) {
-    super(currency.name, currency.code);
+    this._currency = currency;
     this._amount = amount;
   }
 
@@ -13,7 +15,7 @@ export default class Pricing extends Currency {
   }
 
   set currency(pricingCurrency) {
-    this.currency = pricingCurrency;
+    this._currency = pricingCurrency;
   }
 
   get amount() {
@@ -25,7 +27,7 @@ export default class Pricing extends Currency {
   }
 
   displayFullPrice() {
-    return `${this._amount} ${this.displayFullCurrency()}`;
+    return `${this._amount} ${this._currency.name}  ${this._currency.code}`;
   }
 
   static convertPrice(amount, conversionRate) {
