@@ -13,7 +13,7 @@ export default class Pricing extends Currency {
   }
 
   set currency(pricingCurrency) {
-    this._currency = pricingCurrency;
+    this.currency = pricingCurrency;
   }
 
   get amount() {
