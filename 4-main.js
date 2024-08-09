@@ -1,6 +1,7 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable import/extensions */
-import returnHowManyArguments from './0x00-ES6_basic/4-rest-parameter.js';
+import Pricing from './0x02-ES6_classes/4-pricing.js';
+import Currency from './0x02-ES6_classes/3-currency.js';
 
-console.log(returnHowManyArguments('one'));
-console.log(returnHowManyArguments('one', 'two', 3, '4th'));
+const p = new Pricing(100, new Currency('EUR', 'Euro'));
+console.log(p);
+console.log(p.displayFullPrice());
