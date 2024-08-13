@@ -1,6 +1,6 @@
 export default function updateUniqueItems(myMap) {
   if (!myMap) {
-    throw new Error('Cannot process')
+    throw new Error('Cannot process');
   }
   for (const [key, value] of myMap) {
     if (value === 1) {
