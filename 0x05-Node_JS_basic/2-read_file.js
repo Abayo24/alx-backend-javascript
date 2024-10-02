@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const fs = require('fs');
 
 function constStudents(path) {
@@ -49,4 +50,4 @@ function constStudents(path) {
   }
 }
 
-module.exports = countStudents;
+module.exports = constStudents;
