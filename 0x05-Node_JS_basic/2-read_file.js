@@ -3,11 +3,11 @@ const fs = require('fs');
 
 function constStudents(path) {
   try {
-    if (!fs.existsSync(path) || fs.statSync(path).size === 0) {
+    const data = fs.readFileSync(path, 'utf8');
+
+    if (!data) {
       throw new Error('Cannot load the database');
     }
-
-    const data = fs.readFileSync(path, 'utf8');
 
     const lines = data.split('\n').filter((line) => line.trim() !== '');
 
