@@ -8,8 +8,8 @@ describe('calculateNumber', () => {
       assert.strictEqual(calculateNumber('SUM', 1.4, 4.5), 6);
     });
 
-    it('should return 5 for calculateNumber(SUM, 1.2, 3.3)', () => {
-      assert.strictEqual(calculateNumber('SUM', 1.2, 3.3), 5);
+    it('should return 4 for calculateNumber(SUM, 1.2, 3.3)', () => {
+      assert.strictEqual(calculateNumber('SUM', 1.2, 3.3), 4);
     });
   });
 
@@ -34,8 +34,8 @@ describe('calculateNumber', () => {
       assert.strictEqual(calculateNumber('DIVIDE', 1.4, 0), 'Error');
     });
 
-    it('should return 1 for calculateNumber(DIVIDE, 2.5, 2)', () => {
-      assert.strictEqual(calculateNumber('DIVIDE', 2.5, 2), 1);
+    it('should return 1.5 for calculateNumber(DIVIDE, 2.5, 2)', () => {
+      assert.strictEqual(calculateNumber('DIVIDE', 2.5, 2), 1.5);
     });
 
     it('should return "Error" for calculateNumber(DIVIDE, 0, 0)', () => {
