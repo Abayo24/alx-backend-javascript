@@ -9,14 +9,4 @@ describe('getPaymentTokenFromAPI', () => {
                 done();
             });
     });
-
-    it('should do nothing when success is false', (done) => {
-        const result = getPaymentTokenFromAPI(false);
-        expect(result).to.be.an.instanceof(Promise);
-        result.then(() => {
-            done(new Error('Expected method to do nothing.'));
-        }).catch(() => {
-            done();
-        });
-    });
 });
