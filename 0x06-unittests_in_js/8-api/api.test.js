@@ -1,24 +1,28 @@
-const request = require('request');
-const { expect } = require('chai');
+const request = require('supertest');
 const app = require('./api');
+let server;
+
+before((done) => {
+  server = app.listen(0, () => { // Use port 0 for dynamic port assignment
+    done();
+  });
+});
+
+after((done) => {
+  server.close(done); // Ensure the server is closed after the tests
+});
 
 describe('Index page', () => {
-  // Start server before tests
-  before((done) => {
-    app.listen(7865, done);
-  });
-
   it('should return status code 200 for GET /', (done) => {
-    request.get('http://localhost:7865', (error, response, body) => {
-      expect(response.statusCode).to.equal(200);
-      done();
-    });
+    request(server)
+      .get('/')
+      .expect(200, done);
   });
 
   it('should return correct result for GET /', (done) => {
-    request.get('http://localhost:7865', (error, response, body) => {
-      expect(body).to.equal('Welcome to the payment system');
-      done();
-    });
+    request(server)
+      .get('/')
+      .expect(200)
+      .expect('Welcome to the payment system', done);
   });
 });
