@@ -1,28 +1,14 @@
-const request = require('supertest');
-const app = require('./api');
-let server;
+const request = require('request');
+const { expect } = require('chai');
 
-before((done) => {
-  server = app.listen(0, () => { // Use port 0 for dynamic port assignment
-    done();
-  });
-});
+describe('API integration test', () => {
+  const API_URL = 'http://localhost:7865';
 
-after((done) => {
-  server.close(done); // Ensure the server is closed after the tests
-});
-
-describe('Index page', () => {
-  it('should return status code 200 for GET /', (done) => {
-    request(server)
-      .get('/')
-      .expect(200, done);
-  });
-
-  it('should return correct result for GET /', (done) => {
-    request(server)
-      .get('/')
-      .expect(200)
-      .expect('Welcome to the payment system', done);
+  it('GET / returns correct response', (done) => {
+    request.get(`${API_URL}/`, (_err, res, body) => {
+      expect(res.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('Welcome to the payment system');
+      done();
+    });
   });
 });
